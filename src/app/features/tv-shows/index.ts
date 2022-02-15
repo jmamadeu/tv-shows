@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
 import { TvShowAPIResponseType, TvShowType } from "./types";
 import { DEFAULT_TV_SHOW, parseTVShow } from "./utils";
 
