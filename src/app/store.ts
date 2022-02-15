@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import { apiSlice } from "./features/tv-shows";
+import tvShowEpisodeReducer from "./features/tv-shows/tv-shows-slice";
 
 export const store = configureStore({
   reducer: {
+    tvShowEpisode: tvShowEpisodeReducer,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => {

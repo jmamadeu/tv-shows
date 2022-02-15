@@ -23,11 +23,16 @@ export const Content = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  strong {
+  button {
     font-size: 16px;
     color: #333;
 
     text-decoration: underline;
+
+    border: 0;
+
+    background: transparent;
+    text-align: left;
   }
 
   p {
