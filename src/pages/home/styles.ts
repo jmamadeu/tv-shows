@@ -11,3 +11,7 @@ export const Container = styled.div`
     padding: 0 15px;
   }
 `;
+
+export const EpisodeContainer = styled.div`
+  margin-top: 20px;
+`;

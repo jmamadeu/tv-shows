@@ -1,12 +1,4 @@
-export type TvShowType = {
-  id: number;
-  title: string;
-  description: string;
-  coverImageURL: string;
-  episodeList: Array<TvShowEpisodeType>;
-};
-
-export type TvShowAPIResponseType = {
+export type TvShowBaseAPIResponse = {
   id: number;
   name: string;
   image: {
@@ -15,9 +7,17 @@ export type TvShowAPIResponseType = {
   summary: string;
 };
 
+export type TvShowAPIResponseType = TvShowBaseAPIResponse;
+
+export type TvShowAPIResponseEpisodeType = TvShowBaseAPIResponse;
+
 export type TvShowEpisodeType = {
   id: number;
   title: string;
-  summary: string;
+  description: string;
   coverImageURL: string;
+};
+
+export type TvShowType = TvShowEpisodeType & {
+  episodeList: Array<TvShowEpisodeType>;
 };

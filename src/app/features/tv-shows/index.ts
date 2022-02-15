@@ -1,7 +1,14 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import { TvShowAPIResponseType, TvShowType } from "./types";
-import { DEFAULT_TV_SHOW, parseTVShow } from "./utils";
+import {
+  TvShowAPIResponseEpisodeType,
+  TvShowAPIResponseType,
+  TvShowEpisodeType,
+  TvShowType,
+} from "./types";
+import { DEFAULT_TV_SHOW, parseTVShow, parseTVShowEpisodes } from "./utils";
+
+import { store } from "~/app/store";
 
 export const apiSlice = createApi({
   reducerPath: "api",
@@ -16,11 +23,24 @@ export const apiSlice = createApi({
         transformResponse: async (tvShow: TvShowAPIResponseType) => {
           const tvShowParsed = parseTVShow(tvShow);
 
+          store.dispatch(
+            apiSlice.endpoints.fetchTvShowEpisodes.initiate(tvShow.id)
+          );
+
           return tvShowParsed;
+        },
+      }),
+      fetchTvShowEpisodes: builder.query<TvShowEpisodeType[], number>({
+        query: (id) => `/shows/${id}/episodes`,
+        transformResponse: (episodes: TvShowAPIResponseEpisodeType[]) => {
+          const episodesParsed = parseTVShowEpisodes(episodes);
+
+          return episodesParsed;
         },
       }),
     };
   },
 });
 
-export const { useGetDefaultTVShowQuery } = apiSlice;
+export const { useGetDefaultTVShowQuery, useFetchTvShowEpisodesQuery } =
+  apiSlice;

@@ -2,6 +2,7 @@ import * as S from "./styles";
 
 import { useGetDefaultTVShowQuery } from "~/app/features/tv-shows";
 import { TvShowSummary } from "~/components/tv-show/summary";
+import { TvShowEpisodesList } from "~/components/tv-show/episodes-list";
 
 function Home() {
   const { data: tvShow, isLoading, isError } = useGetDefaultTVShowQuery();
@@ -28,7 +29,11 @@ function Home() {
 
   return (
     <S.Container>
-      <TvShowSummary {...tvShow} />
+      <TvShowSummary tvShow={tvShow} />
+
+      <S.EpisodeContainer>
+        <TvShowEpisodesList showId={tvShow.id} />
+      </S.EpisodeContainer>
     </S.Container>
   );
 }

@@ -2,11 +2,13 @@ import * as S from "./styles";
 
 import { TvShowType } from "~/app/features/tv-shows/types";
 
+type TvShowSummaryType = {
+  tvShow: Omit<TvShowType, "episodeList">;
+};
+
 export const TvShowSummary = ({
-  coverImageURL,
-  title,
-  description,
-}: TvShowType) => (
+  tvShow: { coverImageURL, title, description },
+}: TvShowSummaryType) => (
   <S.Container>
     <img src={coverImageURL} alt="tv show" />
 
