@@ -1,11 +1,34 @@
 import { useGetDefaultTVShowQuery } from "./app/features/tv-shows";
+import { TvShowSummary } from "./components/tv-show/summary";
 
 function Home() {
-  const { data } = useGetDefaultTVShowQuery();
+  const { data: tvShow, isLoading, isError } = useGetDefaultTVShowQuery();
 
-  console.log(data);
+  if (isLoading && !tvShow) {
+    return (
+      <div>
+        <span>loading ...</span>
+      </div>
+    );
+  }
 
-  return <h1>TV shows</h1>;
+  if (isError) {
+    return (
+      <div>
+        <span>there was occurred an error</span>
+      </div>
+    );
+  }
+
+  if (!tvShow) {
+    return <></>;
+  }
+
+  return (
+    <main>
+      <TvShowSummary {...tvShow} />
+    </main>
+  );
 }
 
 export { Home };
