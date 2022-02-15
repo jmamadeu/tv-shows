@@ -1,8 +1,10 @@
-function App() {
+import { useGetDefaultTVShowQuery } from "./app/features/tv-shows";
 
-  return (
-    <h1>TV shows</h1>
-  )
+function App() {
+  const { data } = useGetDefaultTVShowQuery();
+
+  console.log(data);
+  return <h1>TV shows</h1>;
 }
 
-export default App
+export default App;
