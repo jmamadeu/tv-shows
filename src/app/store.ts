@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+
 import { apiSlice } from "./features/tv-shows";
 
 export const store = configureStore({
@@ -6,6 +7,7 @@ export const store = configureStore({
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => {
+    // eslint-disable-next-line unicorn/prefer-spread
     return getDefaultMiddleware().concat(apiSlice.middleware);
   },
 });
