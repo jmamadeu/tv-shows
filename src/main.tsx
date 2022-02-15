@@ -1,8 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider as ReduxProvider } from "react-redux";
-import { store } from "./app/store";
-import { Home } from "./home";
+
+import { store } from "~/app/store";
+import { Home } from "~/pages/home";
+
 import "./index.css";
 
 ReactDOM.render(
