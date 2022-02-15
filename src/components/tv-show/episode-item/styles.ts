@@ -26,6 +26,8 @@ export const Content = styled.div`
   strong {
     font-size: 16px;
     color: #333;
+
+    text-decoration: underline;
   }
 
   p {

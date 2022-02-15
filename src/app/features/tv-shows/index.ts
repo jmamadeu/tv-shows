@@ -8,8 +8,6 @@ import {
 } from "./types";
 import { DEFAULT_TV_SHOW, parseTVShow, parseTVShowEpisodes } from "./utils";
 
-import { store } from "~/app/store";
-
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
@@ -22,10 +20,6 @@ export const apiSlice = createApi({
           `/singlesearch/shows?q=${defaultTvShow}`,
         transformResponse: async (tvShow: TvShowAPIResponseType) => {
           const tvShowParsed = parseTVShow(tvShow);
-
-          store.dispatch(
-            apiSlice.endpoints.fetchTvShowEpisodes.initiate(tvShow.id)
-          );
 
           return tvShowParsed;
         },
