@@ -101,5 +101,8 @@ module.exports = {
     "unicorn/string-content": "off",
     "unicorn/template-indent": "warn",
     "unicorn/throw-new-error": "error",
+    "import/no-unresolved": "off",
+    "react-native/no-raw-text": "off",
+    "import/order": ["error", {"newlines-between": "always"}]
   },
 };
