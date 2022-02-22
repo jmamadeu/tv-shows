@@ -33,6 +33,8 @@ export const Content = styled.div`
 
     background: transparent;
     text-align: left;
+
+    cursor: pointer;
   }
 
   p {

@@ -15,7 +15,7 @@ export const TvShowEpisodeItem = ({
     <img src={episode.coverImageURL} alt={`tv show ${episode.title}`} />
 
     <S.Content>
-      <button title="episode title" onClick={() => onClick?.(episode)}>
+      <button title={episode.title} onClick={() => onClick?.(episode)}>
         {episode.title}
       </button>
       <p dangerouslySetInnerHTML={{ __html: episode.description ?? "" }} />
