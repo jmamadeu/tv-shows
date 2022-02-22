@@ -11,9 +11,9 @@ describe("episode-item", () => {
     coverImageURL: "string",
   };
 
-  test("should render the list", () => {
+  test("should render the episode item", () => {
     render(<TvShowEpisodeItem episode={episode} />);
 
-    expect(screen.getByRole("button")).toBe("string");
+    expect(screen.getByRole("button")).toContainHTML("string");
   });
 });
